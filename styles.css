@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Full viewport height */
+  height: 100vh;
+  /* Center content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Radial gradient background */
+  background: radial-gradient(circle at top center, #718497, #29323c);
+}
+
+.container {
+  /* Horizontal flex layout */
+  display: flex;
+  width: 90vw;
+  max-width: 900px;
+  height: 400px;
+  /* Hide overflow */
+  overflow: hidden;
+}
+
+/* Accordion panel */
+.item {
+  position: relative;
+  width: 60px;
+  margin: 10px;
+  cursor: pointer;
+  border-radius: 30px;
+  /* Cover and center background image */
+  background-size: cover;
+  background-position: center;
+  /* Smooth expansion transition */
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+  overflow: hidden;
+  outline: none; /* we'll show focus ring below */
+}
+
+/* Focus ring for keyboard users */
+.item:focus-visible {
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.45),
+    0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional hover lift (nice on desktop) */
+@media (hover: hover) {
+  .item:hover {
+    transform: translateY(-1px);
+  }
+}
+
+.item .shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+.item .content {
+  display: flex;
+  position: absolute;
+  left: 10px;
+  right: 0;
+  bottom: 10px;
+  height: 48px;
+  transition: 0.5s cubic-bezier(0.05, 0.61, 0.41, 0.95);
+}
+
+.item .content .icon {
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+}
+
+/* Icon accent colors per panel */
+.item:nth-child(1) .fa {
+  color: #fc6e51;
+}
+.item:nth-child(2) .fa {
+  color: #ffce54;
+}
+.item:nth-child(3) .fa {
+  color: #2ecc71;
+}
+.item:nth-child(4) .fa {
+  color: #5d9cec;
+}
+.item:nth-child(5) .fa {
+  color: #ac92ec;
+}
+
+.item .content .text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 10px;
+  color: #fff;
+  width: 100%;
+  padding-bottom: 2px;
+}
+
+.item .content .text div {
+  /* Ellipsis (requires width) */
+  width: calc(100% - 70px);
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+
+.item .content .text .tit {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.item .content .text .sub {
+  /* Slight delay for the subtitle fade-in */
+  transition-delay: 0.1s;
+  line-height: 1.3;
+}
+
+/* Active (expanded) state */
+.item.active {
+  flex: 1;
+  margin: 0;
+  border-radius: 40px;
+}
+
+.item.active .shadow {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35) 65%, transparent);
+}
+
+.item.active .content {
+  bottom: 20px;
+  left: 20px;
+  height: auto;
+  padding-right: 16px;
+}
+
+.item.active .content .text div {
+  opacity: 1;
+}
+
+/* Mobile & small screens */
+@media (max-width: 600px) {
+  .container {
+    width: 94vw;
+    height: 60vh; /* keep aspect on phones */
+  }
+  .item {
+    margin: 6px;
+    border-radius: 24px;
+  }
+  .item.active {
+    border-radius: 28px;
+  }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .item .shadow,
+  .item .content,
+  .item .content .text div {
+    transition: none !important;
+  }
+}

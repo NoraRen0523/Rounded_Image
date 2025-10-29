@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
+    />
+    <title>Smooth Accordion Gallery with Captions</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <div class="container" aria-label="Weather-themed image accordion">
+      <div
+        class="item active"
+        style="background-image: url(./image/sun.jpg)"
+        role="button"
+        tabindex="0"
+        aria-label="Sunny — expand panel"
+      >
+        <div class="shadow" aria-hidden="true"></div>
+        <div class="content">
+          <div class="icon" aria-hidden="true">
+            <i class="fa fa-sun-o"></i>
+          </div>
+          <div class="text">
+            <div class="tit">Sunny</div>
+            <div class="sub">Bright skies with warm, golden light.</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        style="background-image: url(./image/cloud.jpg)"
+        role="button"
+        tabindex="0"
+        aria-label="Cloudy — expand panel"
+      >
+        <div class="shadow" aria-hidden="true"></div>
+        <div class="content">
+          <div class="icon" aria-hidden="true">
+            <i class="fa fa-cloud"></i>
+          </div>
+          <div class="text">
+            <div class="tit">Cloudy</div>
+            <div class="sub">Soft layers of cloud drift across the sky.</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        style="background-image: url(./image/rain.jpg)"
+        role="button"
+        tabindex="0"
+        aria-label="Rainy — expand panel"
+      >
+        <div class="shadow" aria-hidden="true"></div>
+        <div class="content">
+          <div class="icon" aria-hidden="true">
+            <i class="fa fa-tint"></i>
+          </div>
+          <div class="text">
+            <div class="tit">Rainy</div>
+            <div class="sub">Gentle drops, cool breeze, calm streets.</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        style="background-image: url(./image/bolt.jpg)"
+        role="button"
+        tabindex="0"
+        aria-label="Storm — expand panel"
+      >
+        <div class="shadow" aria-hidden="true"></div>
+        <div class="content">
+          <div class="icon" aria-hidden="true">
+            <i class="fa fa-bolt"></i>
+          </div>
+          <div class="text">
+            <div class="tit">Storm</div>
+            <div class="sub">Thunder roars as lightning splits the night.</div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="item"
+        style="background-image: url(./image/snow.jpg)"
+        role="button"
+        tabindex="0"
+        aria-label="Snowy — expand panel"
+      >
+        <div class="shadow" aria-hidden="true"></div>
+        <div class="content">
+          <div class="icon" aria-hidden="true">
+            <i class="fa fa-snowflake-o"></i>
+          </div>
+          <div class="text">
+            <div class="tit">Snowy</div>
+            <div class="sub">Feathery flakes blanket a quiet world.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>
